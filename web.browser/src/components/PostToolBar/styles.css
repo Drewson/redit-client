@@ -1,0 +1,8 @@
+.postToolBar {
+    width: 100%;
+    justify-content: flex-end!important;
+}
+
+.postToolBarButton:hover {
+    background: white;
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "redacademy",
+  "rules": {
+    "arrow-body-style": 1,
+    "react/require-default-props": 0,
+    "react/jsx-filename-extension": 0
+  }
+}
