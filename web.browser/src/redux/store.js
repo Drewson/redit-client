@@ -1,6 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { WeeksReducer, PostsReducer } from './reducer';
-// import reduxLogger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 
 
@@ -10,6 +10,7 @@ const store = createStore(
         weeks: WeeksReducer
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(thunk)
 )
 
 export default store;

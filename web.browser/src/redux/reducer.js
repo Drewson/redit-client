@@ -1,13 +1,17 @@
-import { data } from '../mock-data';
 import {
     SORT_BY_DATE,
     SORT_BY_UPVOTE,
-    UPDATE_VOTE
+    UPDATE_VOTE,
+    GET_WEEKS,
+    GET_POSTS
 } from './actions';
 
 
-export function PostsReducer(state = data.posts, action) {
+export function PostsReducer(state = [], action) {
   switch (action.type) {
+    case GET_POSTS: 
+        const posts = action.payload.posts;
+        return posts;
     case UPDATE_VOTE:
         return state.map((post) => {
             if (action.id === post.id) post.votes++;
@@ -28,8 +32,11 @@ export function PostsReducer(state = data.posts, action) {
     }
 }
 
-export function WeeksReducer(state = data.weeks, action) {
-  switch (action.type) {     
+export function WeeksReducer(state =[], action) {
+  switch (action.type) {    
+      case GET_WEEKS:
+        const weeks = action.payload.weeks; 
+        return weeks; 
       default:
         return state;
     }

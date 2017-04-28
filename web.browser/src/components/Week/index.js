@@ -3,6 +3,7 @@ import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import { connect } from 'react-redux';
+import {getWeeks} from './../../redux/actions'
 
 class Week extends Component {
 
@@ -21,6 +22,10 @@ class Week extends Component {
             <Divider />    
         </List>
         )
+    }
+
+    componentDidMount() {
+        this.props.dispatch(getWeeks());
     }
 
     render(){

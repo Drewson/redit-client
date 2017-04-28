@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PostList from './PostList';
 import PostToolBar from '../../components/PostToolBar'
 import Chip from 'material-ui/Chip';
-import { updateVote, sortByDate, sortByUpvotes } from '../../redux/actions';
+import { updateVote, sortByDate, sortByUpvotes, getPosts } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
@@ -18,6 +18,10 @@ class PostListContainer extends Component {
         this.sortByUpvotes = this.sortByUpvotes.bind(this);
     }
 
+    componentDidMount() {
+        this.props.dispatch(getPosts(0));
+    }
+
     sortByDate() {
         this.props.dispatch(sortByDate());
     }
@@ -30,8 +34,9 @@ class PostListContainer extends Component {
         if ( postId ) this.props.dispatch(updateVote(postId));
     }
 
-    categoryChips( category ){
-        return <Chip key="category" style={{ position:'absolute', right: '50px', bottom: '20px' }} >{ category }</Chip>
+    categoryChips( category, i ){
+        console.log(category.title + i)
+        return <Chip key={category.title + i} style={{ position:'absolute', right: '50px', bottom: '20px' }} >{ category.title }</Chip>
     }
 
     render() {
