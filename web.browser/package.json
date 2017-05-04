@@ -10,10 +10,12 @@
     "eslint-config-redacademy": "^0.3.4",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3"
   },
   "dependencies": {
+    "gandalf-validator": "^0.8.4",
     "material-ui": "^0.17.3",
     "prop-types": "^15.5.7",
     "react": "^15.5.3",

@@ -8,8 +8,8 @@ import {
 
 
 export function PostsReducer(state = [], action) {
-  switch (action.type) {
-    case GET_POSTS: 
+    switch (action.type) {
+    case GET_POSTS:
         const posts = action.payload.posts;
         return posts;
     case UPDATE_VOTE:
@@ -35,7 +35,7 @@ export function PostsReducer(state = [], action) {
 export function WeeksReducer(state =[], action) {
   switch (action.type) {    
       case GET_WEEKS:
-        const weeks = action.payload.weeks; 
+        const weeks = action.payload.weeks;
         return weeks; 
       default:
         return state;

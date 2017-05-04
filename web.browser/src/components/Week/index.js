@@ -8,7 +8,7 @@ import {getWeeks} from './../../redux/actions'
 class Week extends Component {
 
     buildCategoryListItem(category, i){
-        return <ListItem primaryText={category} key={i} />
+        return <ListItem primaryText={category.title} key={i} />
     }
 
     createList(week, i){
@@ -17,7 +17,7 @@ class Week extends Component {
         <List key={i} >
             <Subheader>{ week.title }</Subheader>
             
-            {week.categories.map( this.buildCategoryListItem )}
+            {week.lessons.map( this.buildCategoryListItem )}
 
             <Divider />    
         </List>

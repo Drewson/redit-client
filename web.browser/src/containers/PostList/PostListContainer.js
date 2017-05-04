@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PostList from './PostList';
-import PostToolBar from '../../components/PostToolBar'
-import Chip from 'material-ui/Chip';
-import { updateVote, sortByDate, sortByUpvotes, getPosts } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import Chip from 'material-ui/Chip';
+import PostList from './PostList';
+import PostToolBar from '../../components/PostToolBar';
+import { updateVote, sortByDate, sortByUpvotes, getPosts } from '../../redux/actions';
 
 
 
@@ -19,28 +19,27 @@ class PostListContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(getPosts(0));
+        this.props.dispatch(getPosts(2));
     }
 
     sortByDate() {
         this.props.dispatch(sortByDate());
     }
 
-    sortByUpvotes(){
+    sortByUpvotes() {
         this.props.dispatch(sortByUpvotes());
     }
 
-    updateVote( postId ){
-        if ( postId ) this.props.dispatch(updateVote(postId));
+    updateVote(postId) {
+        if (postId) this.props.dispatch(updateVote(postId));
     }
 
-    categoryChips( category, i ){
-        console.log(category.title + i)
-        return <Chip key={category.title + i} style={{ position:'absolute', right: '50px', bottom: '20px' }} >{ category.title }</Chip>
+    categoryChips(category, i) {
+        return <Chip key={category.title + i} style={{ float: 'right', marginRight: '10px' }} >{ category.title }</Chip>;
     }
 
     render() {
-        return ( 
+        return (
             <div>
                 <PostToolBar
                     sortByDate={this.sortByDate}
@@ -52,19 +51,19 @@ class PostListContainer extends Component {
                     updateVote={this.updateVote}
                 />
             </div>
-        )
+        );
     }
-};
+}
 
 
 function mapStateToProps(state) {
-  return {
-    posts: state.posts
-  };
+    return {
+        posts: state.posts
+    };
 }
 
 PostListContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(PostListContainer);

@@ -11,28 +11,28 @@ export const updateVote = id => ({ type: UPDATE_VOTE, id });
 export const getWeeks = () => {
     return (dispatch) => {
         fetch('http://localhost:3001/api/weeks')
-            .then(response => {
-            if(!response.ok) Promise.reject('canny get da weeks');
-            return response.json();
-        })
-        .then((json) => {
-            dispatch({
-                type: GET_WEEKS,
-                payload: {
-                    weeks: json
-                }
+            .then((response) => {
+                if (!response.ok) Promise.reject('canny get da weeks');
+                return response.json();
+            })
+            .then((json) => {
+                dispatch({
+                    type: GET_WEEKS,
+                    payload: {
+                        weeks: json
+                    }
+                });
             });
-        });
-    }
-}
+    };
+};
 
 export const getPosts = (postId) => {
     return (dispatch) => {
-        fetch('http://localhost:3001/api/lessons/' + postId + '/posts')
-            .then(response => {
-            if(!response.ok) Promise.reject('canny get da posts');
-            return response.json();
-        })
+        fetch(`http://localhost:3001/api/lessons/${postId}/posts`)
+            .then((response) => {
+                if (!response.ok) Promise.reject('canny get da posts');
+                return response.json();
+            })
         .then((json) => {
             dispatch({
                 type: GET_POSTS,
