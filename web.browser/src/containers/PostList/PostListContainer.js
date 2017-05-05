@@ -19,7 +19,7 @@ class PostListContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(getPosts(2));
+        this.props.dispatch(getPosts(5));
     }
 
     sortByDate() {

@@ -3,22 +3,20 @@ import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import { connect } from 'react-redux';
-import {getWeeks} from './../../redux/actions'
+import {getWeeks, getPosts } from './../../redux/actions'
 
 class Week extends Component {
 
-    buildCategoryListItem(category, i){
-        return <ListItem primaryText={category.title} key={i} />
+    buildCategoryListItem(lesson, i){
+        return <ListItem primaryText={lesson.title} key={i} onClick={()=> this.props.dispatch(getPosts(lesson.id))}/>
     }
 
     createList(week, i){
         return (
             
-        <List key={i} >
+        <List key={i}>
             <Subheader>{ week.title }</Subheader>
-            
-            {week.lessons.map( this.buildCategoryListItem )}
-
+            {week.lessons.map( this.buildCategoryListItem.bind(this) )}
             <Divider />    
         </List>
         )

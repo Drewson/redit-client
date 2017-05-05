@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardTitle } from 'material-ui/Card';
 import 'url-search-params-polyfill';
 import FlatButton from 'material-ui/FlatButton';
+import Chip from 'material-ui/Chip';
 
 const Post = ({ post, updateVote, categoryChips}) => (
   <Card key={post.id} style={{ width: '950px', padding: '10px', margin: '20px', position: 'relative' }} >
@@ -12,6 +13,7 @@ const Post = ({ post, updateVote, categoryChips}) => (
         &#x21e7;
         Vote {post.votes}
       </FlatButton>
+      <Chip style={{ float: 'right', marginRight: '10px' }} >{post.tag}</Chip>
     </div>
     
   </Card>
