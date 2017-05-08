@@ -16,7 +16,6 @@ class Categories extends Component {
           iconElementLeft={<IconButton><SiteIcon/></IconButton>} 
         />
         <Week />
-        
       </Drawer>
     )
   }

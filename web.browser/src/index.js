@@ -40,7 +40,7 @@ ReactDOM.render(
             <Switch>
               <Route path="/" exact component={Welcome} />
               <Route path="/login" component={Login} />
-              <Route path="/posts" exact component={PostList} />
+              <Route path="/lesson/:lessonid/posts" exact component={PostList} />
               
               <Route render={() => <h1>Page Not Found </h1>} />
             </Switch>

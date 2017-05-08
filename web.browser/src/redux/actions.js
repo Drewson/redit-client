@@ -12,6 +12,7 @@ export const getWeeks = () => {
     return (dispatch) => {
         fetch('http://localhost:3001/api/weeks')
             .then((response) => {
+                console.log(response)
                 if (!response.ok) Promise.reject('canny get da weeks');
                 return response.json();
             })
@@ -41,5 +42,27 @@ export const getPosts = (postId) => {
                 }
             });
         });
+    }
+}
+
+
+export const userLogin = (data) => {
+    return (dispatch) => {
+        console.log(data)
+        const headers = new Headers({
+            "Content-Type": "application/json"
+        })
+
+        fetch('http://localhost:3001/auth/login', {
+            method: 'POST',
+            headers: headers,
+            body: data,
+            mode: 'cors',
+            cache: 'default'
+        }).then((response) => {
+            getWeeks();
+            if (!response.ok) Promise.reject('Invalid Login');
+            return response.json();
+        })
     }
 }
