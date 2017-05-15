@@ -60,6 +60,7 @@ export const userLogin = (data) => {
             mode: 'cors',
             cache: 'default'
         }).then((response) => {
+            console.log(response);
             getWeeks();
             if (!response.ok) Promise.reject('Invalid Login');
             return response.json();

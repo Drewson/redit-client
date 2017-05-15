@@ -39,7 +39,7 @@ class Form extends Gandalf {
 
   handleSubmit(){
     const data = this.getCleanFormData();
-
+    console.log(data);
     if(!data) return;
     this.props.dispatch(userLogin(JSON.stringify(data)));
   }
